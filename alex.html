@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <link 
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+:root {
+  --primary-color: #ff833e;
+  --primary-color-dark: #db6f35;
+  --text-dark: #333333;
+  --text-light: #767268;
+  --white: #ffffff;
+  --max-width: 1200px;
+  --header-font: "Bebas Neue", sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: flex;
+  width: 100%;
+}
+
+a {
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+nav {
+  position: fixed;
+  isolation: isolate;
+  width: 100%;
+  z-index: 9;
+}
+
+.nav__header {
+  padding: 1rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--primary-color);
+}
+
+.nav__logo a {
+  font-size: 1.75rem;
+  font-weight: 400;
+  font-family: var(--header-font);
+  color: var(--white);
+}
+
+.nav__menu__btn {
+  font-size: 1.5rem;
+  color: var(--white);
+  cursor: pointer;
+}
+
+.nav__links {
+  position: absolute;
+  top: 64px;
+  left: 0;
+  width: 100%;
+  padding: 2rem;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--primary-color);
+  transition: 0.5s;
+  z-index: -1;
+  transform: translateY(-100%);
+}
+
+.nav__links.open {
+  transform: translateY(0);
+}
+
+.nav__links a {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.nav__links a:hover {
+  color: var(--text-dark);
+}
+
+.nav__btns {
+  display: none;
+}
+
+.header__container {
+  max-width: var(--max-width);
+  margin: auto;
+  padding-block: 8rem 2rem;
+  padding-inline: 1rem;
+  display: grid;
+  gap: 2rem;
+  overflow-x: hidden;
+}
+
+.header__image {
+  position: relative;
+  isolation: isolate;
+}
+
+.header__image::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  max-width: 550px;
+  aspect-ratio: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("assets/header-bg.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  opacity: 0.5;
+  z-index: -1;
+}
+
+.header__image img {
+  max-width: 520px;
+  margin-inline: auto;
+}
+
+.header__image__card {
+  position: absolute;
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  background-color: var(--white);
+  white-space: nowrap;
+  border-radius: 5px;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.header__image__card span {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.header__image__card-1 {
+  top: 25%;
+  left: 0;
+  transform: translate(-50%, -50%);
+}
+
+.header__image__card-2 {
+  top: 10%;
+  right: 2rem;
+  transform: translateY(-50%);
+}
+
+.header__image__card-3 {
+  top: 60%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.header__image__card-4 {
+  top: 70%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.header__content h1 {
+  margin-bottom: 1rem;
+  font-size: 5rem;
+  font-weight: 400;
+  font-family: var(--header-font);
+  color: var(--text-dark);
+  line-height: 5.5rem;
+  text-align: center;
+}
+
+.header__content h1 span {
+  color: var(--primary-color);
+}
+
+.header__content p {
+  margin-bottom: 2rem;
+  columns: var(--text-light);
+  line-height: 1.75rem;
+  text-align: center;
+}
+
+.header__content form {
+  margin-bottom: 4rem;
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 1rem 0;
+  border-radius: calc(1rem + 10px);
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header__content .input__row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex: 1;
+}
+
+.header__content .input__group {
+  flex: 1;
+}
+
+.header__content .input__group h5 {
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-light);
+}
+
+.header__content .input__group > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header__content input {
+  width: 100%;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  background-color: transparent;
+}
+
+.header__content input::placeholder {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.header__content .input__group span {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.header__content button {
+  width: 100%;
+  padding: 1rem 2rem;
+  outline: none;
+  border: none;
+  font-size: 1rem;
+  white-space: nowrap;
+  color: var(--white);
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.header__content button:hover {
+  background-color: var(--primary-color-dark);
+}
+
+.header__content .bar {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  text-align: center;
+}
+
+@media (width > 768px) {
+  nav {
+    position: static;
+    padding-block: 2rem 0;
+    padding-inline: 1rem;
+    max-width: var(--max-width);
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .nav__header {
+    flex: 1;
+    padding: 0;
+    background-color: transparent;
+  }
+
+  .nav__logo a {
+    color: var(--text-dark);
+  }
+
+  .nav__logo a span {
+    color: var(--primary-color);
+  }
+
+  .nav__menu__btn {
+    display: none;
+  }
+
+  .nav__links {
+    position: static;
+    padding: 0;
+    flex-direction: row;
+    background-color: transparent;
+    transform: none;
+  }
+
+  .nav__links a {
+    padding-block: 5px;
+    color: var(--text-dark);
+    border-bottom: 4px solid transparent;
+  }
+
+  .nav__links a:hover {
+    border-color: var(--primary-color);
+  }
+
+  .nav__btns {
+    display: flex;
+    flex: 1;
+  }
+
+  .nav__btns .btn {
+    padding: 0.75rem 1.5rem;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    white-space: nowrap;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+
+  .sign__up {
+    color: var(--text-dark);
+    background-color: transparent;
+  }
+
+  .sign__up:hover {
+    color: var(--primary-color);
+  }
+
+  .sign__in {
+    color: var(--white);
+    background-color: var(--primary-color);
+  }
+
+  .sign__in:hover {
+    background-color: var(--primary-color-dark);
+  }
+
+  .header__container {
+    padding-block: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+  }
+
+  .header__image {
+    grid-area: 1/2/2/3;
+  }
+
+  .header__content :is(h1, p, .bar) {
+    text-align: left;
+  }
+}
+
+@media (width > 1024px) {
+  .header__content form {
+    flex-direction: row;
+  }
+
+  .header__content button {
+    width: fit-content;
+  }
+}
+ /* Hero */
+ .hero {
+    margin-bottom: 50px;
+  }
+  
+  .hero .container {
+    background: url(../hero-bg.png) no-repeat;
+    background-size:contain;
+    background-position: center bottom;
+    height: 550px;
+  }
+  
+  .hero .hero-content {
+    width: 70%;
+  }
+  
+  .hero .hero-text {
+    width: 70%;
+    margin-bottom: 20px;
+  }
+  
+  /* Video */
+  .video {
+    padding: 10px 0 40px;
+  }
+  
+  .video .video-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .video .video-preview {
+    margin-bottom: 20px;
+  }
+  
+  /* Testimonials */
+  .testimonials {
+    padding: 40px 0;
+    
+  }
+  
+  .testimonials .testimonials-heading {
+    width: 700px;
+    margin-bottom: 40px;
+  }
+  
+  .testimonials .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+  
+  .testimonials .card p:nth-child(2) {
+    margin-top: 30px;
+    font-weight: bold;
+  }
+  
+  /* Pricing */
+  .pricing .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+  }
+  
+  .pricing .pricing-card-subheading {
+    margin-bottom: 30px;
+  }
+  
+  .pricing .pricing-card-price {
+    margin-bottom: 30px;
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .pricing ul {
+    margin: 30px 0;
+  }
+  
+  .pricing ul li {
+    margin-bottom: 20px;
+  }
+  
+  .pricing ul li i {
+    margin-right: 10px;
+  }
+  
+  .pricing .pricing-footer {
+    margin: 30px 0;
+  }
+  
+  /* FAQ */
+  .faq {
+    padding: 40px 0;
+  }
+  
+  .faq .faq-group {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+  }
+  
+  .faq .faq-group .faq-group-header {
+    padding: 20px 0;
+    margin-bottom: 15px;
+    position: relative;
+  }
+  
+  .faq .faq-group .faq-group-header h4 {
+    font-weight: 600;
+    width: 95%;
+  }
+  
+  .faq .faq-group .faq-group-header i {
+    position: absolute;
+    right: 0;
+    top: 35px;
+    font-size: 1.3rem;
+    cursor: pointer;
+  }
+  
+  .faq .faq-group .faq-group-body {
+    display: none;
+  }
+  
+  .faq .faq-group .faq-group-body.open {
+    display: block;
+  }
+  
+  .faq ul.faq-menu {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ddd;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .faq ul.faq-menu li {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .faq ul.faq-menu li.active {
+    background: var(--primary-color);
+    color: #fff;
+  }
+  
+  /* Footer */
+  .footer {
+    padding: 40px 0;
+  }
+  
+  .footer h4 {
+    margin-bottom: 10px;
+  }
+  
+  .footer ul li {
+    line-height: 2.5;
+  }
+  
+  .footer a {
+    color: #ccc;
+  }
+  
+  .footer i {
+    font-size: 1.5rem;
+    margin-right: 10px;
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .footer .card {
+    margin: 20px 30px 30px 0;
+  }
+  
+  .footer input[type='email'] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 20px 0;
+  }
+  
+  /* Utility Classes */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .container-sm {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  /* Card */
+  .card {
+    background: #fff;
+    color: #000;
+    border-radius: 10px;
+    padding: 20px;
+  }
+  
+  /* Buttons */
+  .btn {
+    display: inline-block;
+    padding: 13px 20px;
+    background: var(--light-color);
+    color: #333;
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    transition: 0.5s;
+  }
+  
+  .btn:hover {
+    opacity: 0.8;
+  }
+  
+  .btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+  }
+  
+  .btn-dark {
+    background: var(--dark-color);
+    color: #fff;
+  }
+  
+  .btn-block {
+    display: block;
+    width: 100%;
+  }
+  
+  /* Text Classes */
+  .text-xxl {
+    font-size: 3rem;
+    line-height: 1.2;
+    font-weight: 600;
+    margin: 40px 0 20px;
+  }
+  
+  .text-xl {
+    font-size: 2.2rem;
+    line-height: 1.4;
+    font-weight: normal;
+    margin: 40px 0 20px;
+  }
+  
+  .text-lg {
+    font-size: 1.8rem;
+    line-height: 1.4;
+    font-weight: normal;
+    margin: 30px 0 20px;
+  }
+  
+  .text-md {
+    font-size: 1.2rem;
+    line-height: 1.4;
+    font-weight: normal;
+    margin: 20px 0 10px;
+  }
+  
+  .text-sm {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    font-weight: normal;
+    margin: 10px 0 5px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  /* Background */
+  .bg-primary {
+    background: var(--primary-color);
+    color: #fff;
+  }
+  
+  .bg-light {
+    background: var(--light-color);
+    color: #333;
+  }
+  
+  .bg-dark {
+    background: var(--dark-color);
+    color: #fff;
+  }
+  
+  .bg-black {
+    background: #000;
+    color: #fff;
+  }
+  
+  /* Hamburger Button */
+  .hamburger-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+  }
+  
+  .hamburger-button .hamburger-line {
+    width: 30px;
+    height: 3px;
+    background: #333;
+    margin: 6px 0;
+  }
+  
+  /* Mobile Menu */
+  .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 250px;
+    height: 100%;
+    z-index: 100;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s ease-in-out;
+  }
+  
+  .mobile-menu.active {
+    right: 0;
+  }
+  
+  .mobile-menu ul {
+    margin-top: 100px;
+    padding-right: 10px;
+  }
+  
+  .mobile-menu ul li {
+    margin: 10px 0;
+  }
+  
+  .mobile-menu ul li a {
+    font-size: 20px;
+    transition: 0.3s;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 960px) {
+    .text-xxl {
+      font-size: 2.5rem;
+    }
+  }
+  
+  @media (max-width: 670px) {
+    .navbar .main-menu {
+      display: none;
+    }
+  
+    .navbar .hamburger-button {
+      display: block;
+    }
+  
+    .hero .container {
+      background: url('../images/hero-bg-mobile.png') no-repeat;
+      background-size: 350px 400px;
+      background-position: bottom;
+      height: 770px;
+    }
+  
+    .hero .hero-content,
+    .hero .hero-text {
+      width: 100%;
+      text-align: center;
+    }
+  
+    .hero .hero-buttons .btn {
+      margin-bottom: 10px;
+      display: block;
+      width: 100%;
+    }
+  
+    .testimonials .testimonials-heading {
+      max-width: 100%;
+      text-align: center;
+    }
+  
+    .testimonials .testimonials-grid,
+    .pricing .pricing-grid,
+    .footer .footer-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .footer .card {
+      margin-right: 0;
+    }
+  
+    .footer .footer-grid > div {
+      text-align: center;
+    }
+  
+    /* Text */
+    .text-xl {
+      font-size: 1.9rem;
+    }
+  
+    .text-lg {
+      font-size: 1.5rem;
+    }
+  
+    .text-md {
+      font-size: 1.1rem;
+    }
+  }
+
+
+    </style>
+    <link rel="stylesheet" href="styles.css" />
+    <title>Web Design Mastery | SoulTravel</title>
+  </head>
+  <body>
+    <nav>
+      <div class="nav__header">
+        <div class="nav__logo">
+          <a href="#">AYMEN<span>Travel</span>.</a>
+        </div>
+        <div class="nav__menu__btn" id="menu-btn">
+          <span><i class="ri-menu-line"></i></span>
+        </div>
+      </div>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#">Destination</a></li>
+        <li><a href="#">Package</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+      <div class="nav__btns">
+        <button class="btn sign__up">Sign Up</button>
+        <button class="btn sign__in">Sign In</button>
+      </div>
+    </nav>
+    <header class="header__container">
+      <div class="header__image">
+        <div class="header__image__card header__image__card-1">
+          <span><i class="ri-key-line"></i></span>
+          Hotel Booking
+        </div>
+        <div class="header__image__card header__image__card-2">
+          <span><i class="ri-passport-line"></i></span>
+          Flight Tickets
+        </div>
+        <div class="header__image__card header__image__card-3">
+          <span><i class="ri-map-2-line"></i></span>
+          Local Events
+        </div>
+        <div class="header__image__card header__image__card-4">
+          <span><i class="ri-guide-line"></i></span>
+          Tour Guide
+        </div>
+        <img src="alex.png" alt="header" />
+      </div>
+      <div class="header__content">
+        <h1>LET'S GO!<br />THE <span>ADVENTURE</span> IS WAITING FOR YOU</h1>
+        <p>
+          Embark on Your Journey Today and Discover Uncharted Wonders Around the
+          World - Your Adventure Awaits with Exciting Experiences, Unforgettable
+          Memories, and Endless Opportunities
+        </p>
+        <form action="/">
+          <div class="input__row">
+            <div class="input__group">
+              <h5>Destination</h5>
+              <div>
+                <span><i class="ri-map-pin-line"></i></span>
+                <input type="text" placeholder="Paris, France" />
+              </div>
+            </div>
+            <div class="input__group">
+              <h5>Date</h5>
+              <div>
+                <span><i class="ri-calendar-2-line"></i></span>
+                <input type="text" placeholder="17 July 2024" />
+              </div>
+            </div>
+          </div>
+          <button type="submit">Search</button>
+        </form>
+        <div class="bar">
+         
+        </div>
+      </div>
+    </header>
+    <section class="video bg-black">
+      <div class="container-sm">
+        <h2 class="video-heading text-xl text-center">
+          See how it works and get started in less than 2 minutes
+        </h2>
+        <div class="video-content">
+          <a href="#">
+            <video
+            controls
+             autoplay
+            
+              class="video-preview"
+            ><source src="vedio.mp4" type="video/mp4">
+            
+          
+            </video>
+          </a>
+
+          <a href="#" class="btn btn-primary">Get Started</a>
+        </div>
+      </div>
+    </section>
+    <!-- Testimonials -->
+    <section class="testimonials bg-dark">
+      <div class="container">
+        <h3 class="testimonials-heading text-xl">
+          Don't just take our word for it, see the success stories from
+          ADVENTURE just like yours.
+        </h3>
+        <div class="testimonials-grid">
+          <div class="card">
+            <p>
+              “This house of vacations is located in Châtenois, located 2 km from the A31 autoroute. You can place it on the public terrace, in the garden and in the bathroom for children..”
+            </p>
+
+            <p>Katherine Smith</p>
+            <p>Capodopera</p>
+          </div>
+
+          <div class="card">
+            <p>
+              “Featuring free WiFi, on-site parking and a garden, the recently renovated Le Moulin des Moines offers accommodation in Châtenois, 24 km from Fort Bourlémont and 24 km from.....”
+            </p>
+
+            <p>Johnathan Lee</p>
+            <p>Red Bolt</p>
+          </div>
+
+          <div class="card">
+            <p>
+              “The dashboards and reporting feature has provided valuable
+              insights into our performance and helped us make data-driven
+              decisions. It's a game changer for us.”
+            </p>
+
+            <p>David Wilson</p>
+            <p>Slide</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="pricing">
+      <div class="container-sm">
+        <h3 class="pricing-heading text-xl text-center">Pricing</h3>
+        <p class="pricing-subheading text-md text-center">
+          Start free and scale while you grow. No hidden fees. Unlimited users
+          for free.
+        </p>
+        <div class="pricing-grid">
+          <!-- Pricing Card 1 -->
+          <div class="card bg-light">
+            <div class="pricing-card-header">
+              <h4 class="pricing-heading text-xl">Simple</h4>
+              <p class="pricing-card-subheading">
+                Keep track of your contacts, gain valuable insights, analyse
+                live data and performance metrics.
+              </p>
+              <p class="pricing-card-price">
+                <span class="text-xl">Free</span>
+                *No credit card needed
+              </p>
+            </div>
+            <div class="pricing-card-body">
+              <ul>
+                <li><i class="fas fa-check"></i> Real-Time Monitoring</li>
+                <li>
+                  <i class="fas fa-check"></i>Track key performance indicators
+                </li>
+                <li><i class="fas fa-check"></i>Schedule appointments</li>
+                <li>
+                  <i class="fas fa-check"></i>Organize, delegate and keep track
+                  of tasks
+                </li>
+              </ul>
+              <a href="#" class="btn btn-primary btn-block">Get Started</a>
+            </div>
+          </div>
+
+          <!-- Pricing Card 2 -->
+          <div class="card bg-black">
+            <div class="pricing-card-header">
+              <h4 class="pricing-card-heading text-xl">Premium</h4>
+              <p class="pricing-card-subheading">
+                Keep track of your contacts, gain valuable insights, analyze
+                live data and performance metrics.
+              </p>
+              <p class="pricing-card-price">
+                <span class="text-xl">$49</span> /month
+              </p>
+            </div>
+            <div class="pricing-card-body">
+              <p>Everything from the free plan plus:</p>
+              <ul>
+                <li><i class="fas fa-check"></i>Data-driven decisions</li>
+                <li><i class="fas fa-check"></i>Data visualization</li>
+                <li><i class="fas fa-check"></i>Schedule appointments</li>
+              </ul>
+              <a href="#" class="btn btn-primary btn-block">Get Started</a>
+            </div>
+          </div>
+        </div>
+        <p class="pricing-footer text-center">
+          All prices are in USD and charged per month with applicable taxes
+          added at checkout.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq bg-light">
+      <div class="container-sm">
+        <h3 class="text-xl text-center">Frequently Asked Questions</h3>
+        <ul class="faq-menu">
+          <li class="active">All</li>
+          <li>Getting Started</li>
+          <li>Pricing</li>
+        </ul>
+        <div class="faq-content">
+          <div class="faq-group">
+            <div class="faq-group-header">
+              <h4 class="text-md">
+                Why book your vacation with us?
+              </h4>
+              <i class="fas fa-minus"></i>
+            </div>
+            <div class="faq-group-body open">
+              <p>
+                Keep track of your contacts, gain valuable insights, analyse
+                live data and performance metrics.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-group">
+            <div class="faq-group-header">
+              <h4 class="text-md">
+                Why choose a travel agency?
+              </h4>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-group-body">
+              <p>
+                
+             With the internet revolution, it has become very easy to book your trip in front of your computer screen or smartphone. 
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-group">
+            <div class="faq-group-header">
+              <h4 class="text-md">
+                How does the task management feature help me delegate tasks to
+                my team and track progress?
+              </h4>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-group-body">
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Incidunt, a! Quaerat, voluptatum. Animi molestias ex quasi
+                explicabo minima perferendis commodi.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-group">
+            <div class="faq-group-header">
+              <h4 class="text-md">
+                Can I collaborate with my team in real-time using all tools?
+              </h4>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-group-body">
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Obcaecati doloremque assumenda aut dolorem recusandae quibusdam
+                aliquid. Repellat animi quam vitae.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-group">
+            <div class="faq-group-header">
+              <h4 class="text-md">Is the app available on all devices?</h4>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-group-body">
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Obcaecati doloremque assumenda aut dolorem recusandae quibusdam
+                aliquid. Repellat animi quam vitae.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-group">
+            <div class="faq-group-header">
+              <h4 class="text-md">
+                How does the app help me stay compliant when working with
+                freelancers and contractors?
+              </h4>
+              <i class="fas fa-plus"></i>
+            </div>
+            <div class="faq-group-body">
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Obcaecati doloremque assumenda aut dolorem recusandae quibusdam
+                aliquid. Repellat animi quam vitae.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script>
+    const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+const menuBtnIcon = menuBtn.querySelector("i");
+
+menuBtn.addEventListener("click", (e) => {
+  navLinks.classList.toggle("open");
+
+  const isOpen = navLinks.classList.contains("open");
+  menuBtnIcon.setAttribute("class", isOpen ? "ri-close-line" : "ri-menu-line");
+});
+
+navLinks.addEventListener("click", (e) => {
+  navLinks.classList.remove("open");
+  menuBtnIcon.setAttribute("class", "ri-menu-line");
+});
+
+const scrollRevealOption = {
+  distance: "50px",
+  origin: "bottom",
+  duration: 1000,
+};
+
+ScrollReveal().reveal(".header__image img", {
+  ...scrollRevealOption,
+  origin: "center",
+});
+
+ScrollReveal().reveal(".header__content h1", {
+  ...scrollRevealOption,
+  delay: 500,
+  
+});
+
+ScrollReveal().reveal(".header__content p", {
+  ...scrollRevealOption,
+  delay: 1000,
+});
+
+ScrollReveal().reveal(".header__content form", {
+  ...scrollRevealOption,
+  delay: 1500,
+});
+
+ScrollReveal().reveal(".header__content .bar", {
+  ...scrollRevealOption,
+  delay: 2000,
+});
+
+ScrollReveal().reveal(".header__image__card", {
+  duration: 1000,
+  interval: 500,
+  delay: 2500,
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const faqContainer = document.querySelector('.faq-content');
+  
+    faqContainer.addEventListener('click', (e) => {
+      const groupHeader = e.target.closest('.faq-group-header');
+  
+      if (!groupHeader) return;
+  
+      const group = groupHeader.parentElement;
+      const groupBody = group.querySelector('.faq-group-body');
+      const icon = groupHeader.querySelector('i');
+  
+      // Toggle icon
+      icon.classList.toggle('fa-plus');
+      icon.classList.toggle('fa-minus');
+  
+      // Toggle visibility of body
+      groupBody.classList.toggle('open');
+  
+      // Close other open FAQ bodies
+      const otherGroups = faqContainer.querySelectorAll('.faq-group');
+  
+      otherGroups.forEach((otherGroup) => {
+        if (otherGroup !== group) {
+          const otherGroupBody = otherGroup.querySelector('.faq-group-body');
+          const otherIcon = otherGroup.querySelector('.faq-group-header i');
+  
+          otherGroupBody.classList.remove('open');
+          otherIcon.classList.remove('fa-minus');
+          otherIcon.classList.add('fa-plus');
+        }
+      });
+    });
+  });
+  
+    </script>
+    
+  </body>
+</html>
