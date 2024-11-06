@@ -15,5 +15,6 @@ We work closely with trusted hotels across Tunisia to provide you with a variety
 With AYMENTRAVEL, you can explore the richness of Tunisia with the confidence that you're getting great value and reliable support.
 Whether you're traveling for leisure, adventure, or relaxation, our goal is to make your stay memorable and hassle-free.
 
+## class diagram
 ![Uploading bLFBQiCm4BphAuHFwIE7N4q9SUD02saeIIZqA2iRHqIF8Aq3flJVktusXWHQ7unsThmp7acpWC9ZOJH3XHfuylcsM6tNoSTYoJTbG31ypETQXC1J9N8l36EoBhTUd44dELXPyY_6wNcmma3CD-YLpHj4EobGEJj4C-UEBmv1ZsGHq1dmCP-tgqT-g3enhmbtCNycSlzb3bZZAGWTHjHTge1F.png…]()
 
